@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import {createPet, deletePet} from "../../../service/petService"
-import {getPetRequestData} from "../../../utils/requestsDataGenerator";
+import {getPetRequestData} from "../../../util/requestsDataGenerator";
 
 describe('Tests for Delete pet endpoint', () => {
     let petData = getPetRequestData()
