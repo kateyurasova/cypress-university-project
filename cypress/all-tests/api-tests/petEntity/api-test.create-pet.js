@@ -1,6 +1,6 @@
 import Chance from 'chance'
 import {createPet, deletePet, getPetById, updatePet} from "../../../service/petService"
-import {DATA_OPTIONS, getPetRequestData} from "../../../util/requestsDataGenerator";
+import {DATA_OPTIONS, getPetRequestData} from "../../../utils/requestsDataGenerator";
 import {API_URL} from "../../../service/apiSettings";
 
 describe('Tests for Create Pet endpoint', () => {
