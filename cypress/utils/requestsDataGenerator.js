@@ -3,11 +3,7 @@ import {PET_LIMIT} from "./limits";
 
 let chance = Chance()
 
-export const DATA_OPTIONS = {
-    MIN: "min",
-    MAX: "max",
-    AVERAGE: "average",
-}
+export const DATA_OPTIONS = {MIN: "min", MAX: "max", AVERAGE: "average"}
 
 export const getPetRequestData = (param = DATA_OPTIONS.AVERAGE, onlyRequiredFields = false) => {
     let petDataSet = (param === DATA_OPTIONS.AVERAGE) ?
@@ -50,7 +46,6 @@ export const getPetRequestData = (param = DATA_OPTIONS.AVERAGE, onlyRequiredFiel
         }
 
     if (onlyRequiredFields) {
-        let requiredFields = ["name", "photoUrls"]
         let filteredDataSet = {}
         for (let property in petDataSet) {
             if (PET_LIMIT.requiredFields.includes(property)) {
@@ -61,8 +56,6 @@ export const getPetRequestData = (param = DATA_OPTIONS.AVERAGE, onlyRequiredFiel
     } else {
         return petDataSet
     }
-
-    return petDataSet
 }
 
 export const fillUrls = (count) => {

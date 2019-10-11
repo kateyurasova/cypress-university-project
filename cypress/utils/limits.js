@@ -1,7 +1,7 @@
 export const PET_LIMIT = {
     name: {min: 1, max: 100},
     id: {minValue: 1000, maxValue: 100000},
-    status: ['available', 'pending', 'sold '],
+    status: ['available', 'pending', 'sold'],
     photoUrls: {
         urlCount: {min: 1, max: 100},
         length: {min: 1, max: 10}

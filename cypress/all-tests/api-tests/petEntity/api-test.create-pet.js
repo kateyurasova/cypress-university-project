@@ -6,7 +6,7 @@ import {API_URL} from "../../../service/apiSettings";
 describe('Tests for Create Pet endpoint', () => {
 
     let testingData = [
-        {description: 'All fields: Max values', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
+        {description: 'All fields: Max values', requestData: getPetRequestData(DATA_OPTIONS.MAX)},
         {description: 'All fields: Average values', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
         {description: 'All fields: Min values', requestData: getPetRequestData(DATA_OPTIONS.MIN)}
     ];

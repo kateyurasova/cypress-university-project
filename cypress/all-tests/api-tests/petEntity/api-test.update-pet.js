@@ -53,7 +53,7 @@ describe('Tests for Update pet endpoint', () => {
         })
 
     })
-    xit('Negative: Invalid pet Id (string instead of integer)', () => {
+    it('Negative: Invalid pet Id (string instead of integer)', () => {
         let requestData = getPetRequestData()
         requestData.id = 'anyString'
         updatePet(requestData, false).then(response => {
