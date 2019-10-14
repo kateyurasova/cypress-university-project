@@ -3,12 +3,12 @@ import {createPet, deletePet, getPetById, updatePet} from "../../../service/petS
 import {DATA_OPTIONS, getPetRequestData} from "../../../utils/requestsDataGenerator";
 import {API_URL} from "../../../service/apiSettings";
 
-describe('Tests for Create Pet endpoint', () => {
+describe('Create new Pet', () => {
 
     let testingData = [
-        {description: 'All fields: Max values C2', requestData: getPetRequestData(DATA_OPTIONS.MAX)},
-        {description: 'All fields: Average values C3', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
-        {description: 'All fields: Min values C1', requestData: getPetRequestData(DATA_OPTIONS.MIN)}
+        {description: 'All fields are filled in with min values C2', requestData: getPetRequestData(DATA_OPTIONS.MAX)},
+        {description: 'All fields are filled in with max values C3', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
+        {description: 'All fields are filled in with average values C1', requestData: getPetRequestData(DATA_OPTIONS.MIN)}
     ];
 
     testingData.forEach(({description, requestData}) => {
