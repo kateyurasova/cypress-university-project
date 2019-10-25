@@ -4,7 +4,7 @@ import {DATA_OPTIONS, getPetRequestData} from "../../../utils/requestsDataGenera
 import {API_URL} from "../../../service/apiSettings";
 
 describe('Tests for Update pet endpoint', () => {
-    it('Positive: Update pet data', () => {
+    it('Positive: Update pet data C37', () => {
         let initialPetData = getPetRequestData()
         let newPetData = getPetRequestData()
         createPet(initialPetData).then(response => {
@@ -20,7 +20,7 @@ describe('Tests for Update pet endpoint', () => {
             })
         })
     });
-    it('Positive: Update pet data - empty body', () => {
+    it('Positive: Update pet data - empty body C38', () => {
         let initialPetData = getPetRequestData()
         let newPetData = {}
         createPet(initialPetData).then(response => {
@@ -30,13 +30,13 @@ describe('Tests for Update pet endpoint', () => {
             })
         })
     });
-    it('Negative: No body in request', () => {
+    it('Negative: No body in request C28', () => {
         cy.request({method: 'PUT', url: `${API_URL}/pet`, failOnStatusCode: false}).then(response => {
             console.log(response)
             expect(response.status).to.eq(415);
         })
     })
-    it('Negative: Update pet with Nonexistent id', () => {
+    it('Negative: Update pet with Nonexistent id C29', () => {
         let newPetData = getPetRequestData()
         newPetData.id = Chance().string({length: 50, pool: "0123456789"})
         updatePet(newPetData, false).then(response => {
@@ -44,7 +44,7 @@ describe('Tests for Update pet endpoint', () => {
             expect(response.status).to.eq(404, 'Not found');
         })
     });
-    it('Negative: Invalid pet ID (empty)', () => {
+    it('Negative: Invalid pet ID (empty) C30', () => {
         let requestData = getPetRequestData()
         requestData.id = ''
         updatePet(requestData, false).then(response => {
@@ -53,7 +53,7 @@ describe('Tests for Update pet endpoint', () => {
         })
 
     })
-    it('Negative: Invalid pet Id (string instead of integer)', () => {
+    it('Negative: Invalid pet Id (string instead of integer) C31', () => {
         let requestData = getPetRequestData()
         requestData.id = 'anyString'
         updatePet(requestData, false).then(response => {
@@ -62,7 +62,7 @@ describe('Tests for Update pet endpoint', () => {
         })
     })
 
-    it('Negative: Invalid pet status (numeric instead of valid string value)', () => {
+    it('Negative: Invalid pet status (numeric instead of valid string value) C32', () => {
         let requestData = getPetRequestData()
         requestData.status = 1
         updatePet(requestData, false).then(response => {
@@ -70,7 +70,7 @@ describe('Tests for Update pet endpoint', () => {
             expect(response.message).to.eq('Invalid pet status value');
         })
     })
-    it('Negative: Invalid tag name (numeric instead of valid string value)', () => {
+    it('Negative: Invalid tag name (numeric instead of valid string value) C33', () => {
         let requestData = getPetRequestData()
         requestData.tags[0].name = 2
         updatePet(requestData, false).then(response => {
@@ -87,7 +87,7 @@ describe('Tests for Update pet endpoint', () => {
             expect(response.message).to.eq('Invalid tag name value');
         })
     })
-    it('Negative: Invalid tag id (string valid numeric value)', () => {
+    it('Negative: Invalid tag id (string valid numeric value) C35', () => {
         let requestData = getPetRequestData()
         requestData.tags[0].id = Chance().string()
         updatePet(requestData, false).then(response => {
@@ -95,7 +95,7 @@ describe('Tests for Update pet endpoint', () => {
             expect(response.message).to.eq('Bad Request');
         })
     })
-    it('Negative: Invalid category id (string valid numeric value)', () => {
+    it('Negative: Invalid category id (string valid numeric value) C36', () => {
         let requestData = getPetRequestData()
         requestData.category.id = Chance().string()
         updatePet(requestData, false).then(response => {

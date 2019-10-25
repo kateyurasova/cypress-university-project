@@ -34,7 +34,7 @@ export const getPetRequestData = (param = DATA_OPTIONS.AVERAGE, onlyRequiredFiel
             photoUrls: fillUrls(PET_LIMIT.photoUrls.urlCount.max),
             tags: fillTags(PET_LIMIT.tags.urlCount.max)
         } : {
-            name: Chance().string({length: 1}),
+            name: Chance().string({length: PET_LIMIT.name.min}),
             category: {
                 id: getRandomCategoryId(),
                 name: Chance().string({length: PET_LIMIT.category.name.min}),

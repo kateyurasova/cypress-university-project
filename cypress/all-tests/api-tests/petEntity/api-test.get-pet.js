@@ -18,20 +18,20 @@ describe('Tests for Get pet endpoint', () => {
             })
         })
     })
-    it('Negative: Nonexistent id', () => {
+    it('Negative: Nonexistent id C42', () => {
         getPetById(Chance().integer(), false).then(response => {
             expect(response.status).to.eq(404);
             expect(response.body.message).to.eq('Pet not found');
         })
     })
-    it('Negative: ID as a string', () => {
+    it('Negative: ID as a string C43', () => {
         getPetById('anyString', false).then(response => {
             console.log(response)
             expect(response.status).to.eq(404);
             expect(response.statusText).to.eq('Not Found');
         })
     })
-    it('Negative: No ID in parameter', () => {
+    it('Negative: No ID in parameter C44', () => {
         getPetById('', false).then(response => {
             console.log(response)
             expect(response.status).to.eq(405);
