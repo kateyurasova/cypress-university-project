@@ -3,12 +3,12 @@ import {createPet, deletePet, getPetById, updatePet} from "../../../service/petS
 import {DATA_OPTIONS, getPetRequestData} from "../../../utils/requestsDataGenerator";
 import {API_URL} from "../../../service/apiSettings";
 
-describe('Tests for Create Pet endpoint', () => {
+describe('Create new Pet', () => {
 
     let testingData = [
-        {description: 'All fields: Max values', requestData: getPetRequestData(DATA_OPTIONS.MAX)},
-        {description: 'All fields: Average values', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
-        {description: 'All fields: Min values', requestData: getPetRequestData(DATA_OPTIONS.MIN)}
+        {description: 'All fields are filled in with min values C2', requestData: getPetRequestData(DATA_OPTIONS.MAX)},
+        {description: 'All fields are filled in with max values C3', requestData: getPetRequestData(DATA_OPTIONS.AVERAGE)},
+        {description: 'All fields are filled in with average values C1', requestData: getPetRequestData(DATA_OPTIONS.MIN)}
     ];
 
     testingData.forEach(({description, requestData}) => {
@@ -33,7 +33,7 @@ describe('Tests for Create Pet endpoint', () => {
         })
     });
 
-    it('Positive: Only required fields (name and photoUrl)', () => {
+    it('Positive: Only required fields (name and photoUrl) C4', () => {
         let requestData = getPetRequestData(DATA_OPTIONS.AVERAGE, true)
         createPet(requestData).then(response => {
             expect(response.status).to.eq(200);
@@ -78,7 +78,7 @@ describe('Tests for Create Pet endpoint', () => {
             expect(response.message).to.eq('Invalid tag name value');
         })
     })
-    it('Negative: Invalid pet id (string valid instead of numeric value)', () => {
+    it('Negative: Invalid pet id (string valid instead of numeric value) C8', () => {
         let requestData = getPetRequestData()
         requestData.id = Chance().string()
         createPet(requestData, false).then(response => {
